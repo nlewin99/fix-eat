@@ -1,117 +1,89 @@
-.App {
+/* Contenedor general */
+div {
+  font-family: Arial, sans-serif;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Imagen del logo */
+img {
+  width: 250px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Campo de búsqueda */
+.search-container {
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Estilos vista lista */
-
+/* Contenedor de tarjetas de personajes */
 .character-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
+  justify-items: center;
 }
 
+/* Tarjeta de personaje */
 .character-card {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .character-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
 }
 
+.character-card h4 {
+  margin: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Controles de paginación */
 .pagination-controls {
   margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-button {
-  margin: 0 5px;
-  padding: 10px 15px;
+.pagination-controls button {
+  padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
-  background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
   background-color: #f0f0f0;
-}
-
-button.active {
-  background-color: #00bcd4;
-  color: white;
-  border: 1px solid #00bcd4;
-}
-
-/* Estilos vista detalle */
-
-.character-detail {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.character-detail img {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.back-button {
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  background-color: #00bcd4;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  color: #333;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  margin: 0 5px;
 }
 
-.back-button:hover {
-  background-color: #0097a7;
+.pagination-controls button.active,
+.pagination-controls button:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+/* Botón deshabilitado */
+.pagination-controls button:disabled {
+  background-color: #f9f9f9;
+  cursor: not-allowed;
 }
